@@ -22,6 +22,7 @@ public class VerificationToken {
     private Long id;
     private String token;
     @OneToOne(fetch = LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User user;
     private Instant expiryDate;
 }
