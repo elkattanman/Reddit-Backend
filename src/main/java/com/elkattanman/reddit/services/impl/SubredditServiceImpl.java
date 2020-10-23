@@ -7,6 +7,7 @@ import com.elkattanman.reddit.repository.SubredditRepository;
 import com.elkattanman.reddit.services.ResourceNotFoundException;
 import com.elkattanman.reddit.services.SubredditService;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,8 @@ import static java.util.stream.Collectors.toList;
 
 @Service
 @AllArgsConstructor
+@Slf4j
+@Transactional
 public class SubredditServiceImpl implements SubredditService {
 
     private final SubredditRepository subredditRepository;
