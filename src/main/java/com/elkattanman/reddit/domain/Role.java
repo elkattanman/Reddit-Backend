@@ -40,7 +40,7 @@ public class Role {
     @Column(name = "update_time")
     private Date updateTime;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "roles_has_privileges",
             joinColumns = @JoinColumn(name="roles_id"),
             inverseJoinColumns = @JoinColumn(name="Privileges_id"))
