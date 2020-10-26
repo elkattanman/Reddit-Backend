@@ -1,6 +1,8 @@
 package com.elkattanman.reddit.controller;
 
+import com.elkattanman.reddit.api.v2.model.CommentDto;
 import com.elkattanman.reddit.api.v2.model.PostDto;
+import com.elkattanman.reddit.services.CommentService;
 import com.elkattanman.reddit.services.PostService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +20,7 @@ import static com.elkattanman.reddit.util.Constants.API_LINK;
 public class PostController {
 
     private final PostService postService;
+    private final CommentService commentService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -37,8 +40,9 @@ public class PostController {
         return postService.getPost(id);
     }
 
-    @GetMapping("by-user/{username}")
-    public List<PostDto> getPostsByUsername(@PathVariable String username){
-        return postService.getPostsByUsername(username);
+    @GetMapping("{postId}/comments")
+    @ResponseStatus(HttpStatus.OK)
+    public List<CommentDto> getAllCommentsForPost(@PathVariable Long postId) {
+        return commentService.getAllCommentsForPost(postId);
     }
 }
