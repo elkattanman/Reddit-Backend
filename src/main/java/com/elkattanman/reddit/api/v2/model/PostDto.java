@@ -15,4 +15,9 @@ public class PostDto {
     private String description;
     private String subredditName;
     private String userName;
+    private int  voteCount;
+    private Integer commentCount;
+    private String duration;
+    private boolean upVote;
+    private boolean downVote;
 }

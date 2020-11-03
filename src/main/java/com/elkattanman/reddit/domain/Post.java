@@ -1,9 +1,6 @@
 package com.elkattanman.reddit.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
@@ -35,7 +32,7 @@ public class Post {
     @Lob
     private String description;
 
-    private Integer voteCount = 0;
+    private int voteCount = 0;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
@@ -46,4 +43,5 @@ public class Post {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "subreddit_id", referencedColumnName = "id")
     private Subreddit subreddit;
+
 }
