@@ -55,10 +55,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // configure access rules
                 .antMatchers("/api/auth/**","/h2-console/**",
-                        "/api/v1/",
-                        "/v2/api-docs/**",
-                        "/swagger-ui.html/**",
-                        "/swagger-resources/**").permitAll()
+                        "/v2/api-docs",
+                        "/configuration/ui",
+                        "/swagger-resources/**",
+                        "/configuration/security",
+                        "/swagger-ui.html",
+                        "/swagger-ui",
+                        "/webjars/**").permitAll()
                 .anyRequest().authenticated();
         http
                 .addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
