@@ -1,5 +1,6 @@
 package com.elkattanman.reddit.domain;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.Instant;
 import java.util.List;
+import org.hibernate.annotations.DynamicUpdate;
 
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -19,7 +21,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @Builder
 @Table(name = "subreddit")
-public class Subreddit {
+@DynamicUpdate
+public class Subreddit implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)

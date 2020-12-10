@@ -1,0 +1,21 @@
+spring:
+    data:
+        rest:
+            base-path: /api/v1
+            default-page-size: 20
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        initialize: true
+        password: toorUser
+        url: jdbc:mysql://localhost:3306/spring-reddit-clone?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+        username: Elkattanman
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+    mail:
+        host: smtp.mailtrap.io
+        password: d337dcb9ef0030
+        port: 2525
+        protocol: smtp
+        username: 11a71f0a8c5eb2

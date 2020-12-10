@@ -1,7 +1,6 @@
 package com.elkattanman.reddit.bootstrap;
 
-import com.elkattanman.reddit.domain.ERole;
-import com.elkattanman.reddit.domain.Privilege;
+import com.elkattanman.reddit.domain.enums.ERole;
 import com.elkattanman.reddit.domain.Role;
 import com.elkattanman.reddit.repository.RoleRepository;
 import lombok.AllArgsConstructor;

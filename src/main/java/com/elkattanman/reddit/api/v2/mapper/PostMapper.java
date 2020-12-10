@@ -2,6 +2,7 @@ package com.elkattanman.reddit.api.v2.mapper;
 
 import com.elkattanman.reddit.api.v2.model.PostDto;
 import com.elkattanman.reddit.domain.*;
+import com.elkattanman.reddit.domain.enums.VoteType;
 import com.elkattanman.reddit.repository.CommentRepository;
 import com.elkattanman.reddit.repository.VoteRepository;
 import com.elkattanman.reddit.security.jwt.AuthService;
@@ -12,8 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
-import static com.elkattanman.reddit.domain.VoteType.DOWNVOTE;
-import static com.elkattanman.reddit.domain.VoteType.UPVOTE;
+import static com.elkattanman.reddit.domain.enums.VoteType.DOWNVOTE;
+import static com.elkattanman.reddit.domain.enums.VoteType.UPVOTE;
 
 @Mapper(componentModel = "spring")
 public abstract class PostMapper {

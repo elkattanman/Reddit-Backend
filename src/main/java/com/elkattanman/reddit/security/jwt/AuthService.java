@@ -1,6 +1,7 @@
 package com.elkattanman.reddit.security.jwt;
 
 import com.elkattanman.reddit.domain.*;
+import com.elkattanman.reddit.domain.enums.ERole;
 import com.elkattanman.reddit.exception.SpringRedditException;
 import com.elkattanman.reddit.mail.MailContentBuilder;
 import com.elkattanman.reddit.mail.MailService;
@@ -82,7 +83,7 @@ public class AuthService {
         mailService.sendMail(new NotificationEmail("Please Activate your account", user.getEmail(), message));
     }
 
-    @Transactional(readOnly = true)
+
     public User getCurrentUser() {
         UserPrincipal principal = (UserPrincipal) SecurityContextHolder.
                 getContext().getAuthentication().getPrincipal();
@@ -107,7 +108,7 @@ public class AuthService {
 
 
 
-    @Transactional
+
     void fetchUserAndEnable(VerificationToken verificationToken) {
         String username = verificationToken.getUser().getUsername();
         User user = userRepository.findByUsername(username).orElseThrow(() -> new SpringRedditException("User Not Found with id - " + username)); // for ensure user in DB

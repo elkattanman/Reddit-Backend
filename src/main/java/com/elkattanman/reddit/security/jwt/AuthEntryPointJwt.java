@@ -14,13 +14,16 @@ import java.io.Serializable;
 @Slf4j
 public class AuthEntryPointJwt implements AuthenticationEntryPoint, Serializable {
 
-	private static final long serialVersionUID = -8970718410437077606L;
+  private static final long serialVersionUID = -8970718410437077606L;
+  public static final String YOU_WOULD_NEED_TO_PROVIDE_THE_JWT_TOKEN_TO_ACCESS_THIS_RESOURCE =
+      "You would need to provide the Jwt Token to Access This resource";
+  public static final String UNAUTHORIZED_ERROR = "Unauthorized error: {}";
 
 	@Override
 	public void commence(HttpServletRequest request, HttpServletResponse response,
                          AuthenticationException authException) throws IOException {
-		log.error("Unauthorized error: {}", authException.getMessage());
+		log.error(UNAUTHORIZED_ERROR, authException.getMessage());
 		response.sendError(HttpServletResponse.SC_UNAUTHORIZED,
-				"You would need to provide the Jwt Token to Access This resource");
+				YOU_WOULD_NEED_TO_PROVIDE_THE_JWT_TOKEN_TO_ACCESS_THIS_RESOURCE);
 	}
 }

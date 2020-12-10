@@ -14,9 +14,9 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 @Slf4j
-public
-class MailService {
-
+public class MailService {
+    // TODO: 10/12/20 you can set this email as a configuration variable in your application.yml
+    public static final String SPRINGREDDIT_EMAIL_COM = "springreddit@email.com";
     private final JavaMailSender mailSender;
     private final MailContentBuilder mailContentBuilder;
 
@@ -24,7 +24,7 @@ class MailService {
     public void sendMail(NotificationEmail notificationEmail) {
         MimeMessagePreparator messagePreparator = mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
-            messageHelper.setFrom("springreddit@email.com");
+            messageHelper.setFrom(SPRINGREDDIT_EMAIL_COM);
             messageHelper.setTo(notificationEmail.getRecipient());
             messageHelper.setSubject(notificationEmail.getSubject());
             messageHelper.setText(mailContentBuilder.build(notificationEmail.getBody()));

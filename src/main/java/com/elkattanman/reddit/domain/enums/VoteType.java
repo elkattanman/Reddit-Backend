@@ -1,4 +1,4 @@
-package com.elkattanman.reddit.domain;
+package com.elkattanman.reddit.domain.enums;
 
 import com.elkattanman.reddit.exception.SpringRedditException;
 
