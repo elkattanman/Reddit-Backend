@@ -1,13 +1,15 @@
 package com.elkattanman.reddit.domain;
 
 
+import com.elkattanman.reddit.domain.enums.EPrivilege;
+import java.io.Serializable;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
@@ -18,7 +20,8 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "privileges")
-public class Privilege {
+@DynamicUpdate
+public class Privilege implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

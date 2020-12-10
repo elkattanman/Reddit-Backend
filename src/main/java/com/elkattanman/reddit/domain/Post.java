@@ -1,6 +1,8 @@
 package com.elkattanman.reddit.domain;
 
+import java.io.Serializable;
 import lombok.*;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
@@ -16,7 +18,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "post")
-public class Post {
+@DynamicUpdate
+public class Post implements Serializable {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "post_id")
