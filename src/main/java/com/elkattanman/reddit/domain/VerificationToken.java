@@ -1,11 +1,13 @@
 package com.elkattanman.reddit.domain;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.Instant;
+import org.hibernate.annotations.DynamicUpdate;
 
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -15,7 +17,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @Entity
 @Table(name = "token")
-public class VerificationToken {
+@DynamicUpdate
+public class VerificationToken implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)

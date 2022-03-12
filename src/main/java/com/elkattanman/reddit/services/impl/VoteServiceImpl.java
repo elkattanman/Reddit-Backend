@@ -16,12 +16,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
-import static com.elkattanman.reddit.domain.VoteType.UPVOTE;
+import static com.elkattanman.reddit.domain.enums.VoteType.UPVOTE;
 
 @Service
 @AllArgsConstructor
 @Slf4j
-@Transactional
 public class VoteServiceImpl implements VoteService {
 
     public final PostRepository postRepository;

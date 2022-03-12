@@ -1,5 +1,6 @@
 package com.elkattanman.reddit.domain;
 
+import com.elkattanman.reddit.domain.enums.VoteType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

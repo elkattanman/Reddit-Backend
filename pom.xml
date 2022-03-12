@@ -15,7 +15,7 @@
 	<description>Backend for Reddit project</description>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 		<org.mapstruct.version>1.4.0.Final</org.mapstruct.version>
 		<springfox-swagger.version>3.0.0</springfox-swagger.version>
 	</properties>

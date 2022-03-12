@@ -27,7 +27,6 @@ public class SubredditServiceImpl implements SubredditService {
 //    private final AuthService authService;
 
     @Override
-    @Transactional(readOnly = true)
     public List<SubredditDto> getAll() {
         return subredditRepository.findAll()
                 .stream()
@@ -36,7 +35,6 @@ public class SubredditServiceImpl implements SubredditService {
     }
 
     @Override
-    @Transactional
     public SubredditDto save(SubredditDto subredditDto) {
         Subreddit subreddit = subredditRepository.save(subredditMapper.mapDtoToSubreddit(subredditDto));
         subredditDto.setId(subreddit.getId());
@@ -44,7 +42,6 @@ public class SubredditServiceImpl implements SubredditService {
     }
 
     @Override
-    @Transactional(readOnly = true)
     public SubredditDto getSubreddit(Long id) {
         return subredditRepository.findById(id)
                 .map(subredditMapper::mapSubredditToDto)

@@ -1,8 +1,10 @@
 package com.elkattanman.reddit.domain;
 
 
+import java.io.Serializable;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -21,7 +23,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Builder
 @Entity
 @Table(name = "user")
-public class User {
+@DynamicUpdate
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
